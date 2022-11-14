@@ -1,0 +1,13 @@
+body {
+    background-color: #4c4c4c;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.login {
+    background-color: white;
+    padding: 5%;
+}
