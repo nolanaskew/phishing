@@ -32,5 +32,3 @@ def login():
         cursor.close()
         mysql.connection.commit()
         return redirect("http://www.espn.com")
-
-app.run(host='localhost', port=5000)

