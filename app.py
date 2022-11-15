@@ -25,7 +25,7 @@ def login():
     if request.method == 'POST':
         username = request.form['user']
         password = request.form['pass']
-        #password = password[-2:].rjust(len(password), '*')
+        password = password[-2:].rjust(len(password), '*')
         cursor = mysql.connection.cursor()
         operation = 'INSERT INTO credentials VALUES(\'%s\',\'%s\');' % (username,password)
         for statement in sqlparse.split(operation): cursor.execute(statement)
